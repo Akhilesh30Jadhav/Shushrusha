@@ -1,0 +1,22 @@
+# Next.js
+frontend/.next/
+frontend/node_modules/
+frontend/out/
+frontend/.env*
+frontend/.vercel
+
+# Python
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/.venv/
+backend/venv/
+backend/.env
+
+# SQLite
+backend/data/sushrusha.db
+backend/data/sushrusha.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db

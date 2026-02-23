@@ -1,0 +1,293 @@
+{
+    "id": "s3_child_diarrhea",
+    "title": {
+        "en": "Child Diarrhea & Fever",
+        "hi": "बच्चे में दस्त और बुखार"
+    },
+    "category": {
+        "en": "Child Health",
+        "hi": "बाल स्वास्थ्य"
+    },
+    "difficulty": "intermediate",
+    "estimated_minutes": 10,
+    "description": {
+        "en": "Assess and manage a 2-year-old child with diarrhea and fever. Counsel the mother on ORS, zinc, and danger signs.",
+        "hi": "दस्त और बुखार वाले 2 साल के बच्चे का मूल्यांकन और प्रबंधन करें। माँ को ORS, जिंक और खतरे के संकेतों के बारे में बताएं।"
+    },
+    "supported_languages": [
+        "en",
+        "hi"
+    ],
+    "total_turns_estimate": 7,
+    "nodes": {
+        "start": {
+            "patient_text": {
+                "en": "Didi, please help! My 2-year-old son Raju has had loose motions since yesterday. He has already gone 6-7 times. He also feels hot.",
+                "hi": "दीदी, कृपया मदद करें! मेरे 2 साल के बेटे राजू को कल से दस्त लगे हैं। 6-7 बार हो चुके हैं। शरीर भी गर्म लग रहा है।"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Greet and assess the situation urgency",
+                    "type": "normal",
+                    "keywords": [
+                        "hello",
+                        "namaste",
+                        "tell me",
+                        "since when",
+                        "kab se",
+                        "bataiye"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "assess_dehydration"
+                }
+            ]
+        },
+        "assess_dehydration": {
+            "patient_text": {
+                "en": "His mouth is dry and he is not urinating much — only twice since morning. He is drinking water but not eating anything. He looks weak and sleepy.",
+                "hi": "उसका मुंह सूखा है और पेशाब कम आ रहा है — सुबह से सिर्फ 2 बार। पानी पी रहा है लेकिन खाना नहीं खा रहा। कमजोर और सुस्त लग रहा है।"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Ask about dehydration signs (dry mouth, less urine, sunken eyes)",
+                    "type": "critical",
+                    "keywords": [
+                        "dehydration",
+                        "dry",
+                        "urine",
+                        "peshab",
+                        "sunken",
+                        "eyes",
+                        "thirst",
+                        "pyaas",
+                        "mouth"
+                    ]
+                },
+                {
+                    "item": "Ask about child's ability to drink",
+                    "type": "critical",
+                    "keywords": [
+                        "drink",
+                        "able",
+                        "refuse",
+                        "peena",
+                        "pee raha",
+                        "mana"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "assess_stool"
+                }
+            ]
+        },
+        "assess_stool": {
+            "patient_text": {
+                "en": "The stool is watery, no blood. Yellowish color. He vomited once this morning but kept the water down after that.",
+                "hi": "दस्त पतला पानी जैसा है, खून नहीं है। पीले रंग का। सुबह एक बार उल्टी हुई थी लेकिन उसके बाद पानी रुक गया।"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Ask about blood in stool",
+                    "type": "critical",
+                    "keywords": [
+                        "blood",
+                        "stool",
+                        "bloody",
+                        "khoon",
+                        "rakt",
+                        "laal"
+                    ]
+                },
+                {
+                    "item": "Ask about vomiting",
+                    "type": "normal",
+                    "keywords": [
+                        "vomit",
+                        "ulti",
+                        "throw up",
+                        "nausea"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "counsel_ors"
+                }
+            ]
+        },
+        "counsel_ors": {
+            "patient_text": {
+                "en": "I heard about ORS but I am not sure how to prepare it. I have a packet at home that the Anganwadi gave us. Should I use that?",
+                "hi": "मैंने ORS के बारे में सुना है लेकिन बनाना नहीं आता। आंगनवाड़ी ने एक पैकेट दिया था घर पर है। क्या वह इस्तेमाल करूं?"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Counsel on ORS preparation and administration",
+                    "type": "critical",
+                    "keywords": [
+                        "ORS",
+                        "oral rehydration",
+                        "solution",
+                        "packet",
+                        "liter",
+                        "water",
+                        "pani",
+                        "ghol"
+                    ]
+                },
+                {
+                    "item": "Counsel on zinc supplementation",
+                    "type": "normal",
+                    "keywords": [
+                        "zinc",
+                        "tablet",
+                        "14 days",
+                        "supplement",
+                        "goli"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "counsel_feeding"
+                }
+            ]
+        },
+        "counsel_feeding": {
+            "patient_text": {
+                "en": "Should I stop giving him food until the diarrhea stops? My mother says not to feed him. He also usually drinks milk — should I stop that too?",
+                "hi": "क्या दस्त बंद होने तक खाना बंद कर दूं? मेरी माँ कहती हैं खाना मत दो। वह दूध भी पीता है — क्या वह भी बंद करूं?"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Counsel to continue feeding during diarrhea",
+                    "type": "normal",
+                    "keywords": [
+                        "continue",
+                        "feed",
+                        "food",
+                        "eat",
+                        "khilao",
+                        "khaana",
+                        "band na",
+                        "dete raho"
+                    ]
+                },
+                {
+                    "item": "Counsel on increased fluid intake",
+                    "type": "normal",
+                    "keywords": [
+                        "fluid",
+                        "liquid",
+                        "water",
+                        "juice",
+                        "dal",
+                        "soup",
+                        "pani",
+                        "zyada"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "danger_signs"
+                }
+            ]
+        },
+        "danger_signs": {
+            "patient_text": {
+                "en": "When should I be really worried? How do I know if I need to take him to the doctor urgently?",
+                "hi": "मुझे कब सच में चिंता करनी चाहिए? कैसे पता चलेगा कि तुरंत डॉक्टर के पास जाना है?"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Explain danger signs: lethargy, blood in stool, inability to drink, persistent vomiting",
+                    "type": "critical",
+                    "keywords": [
+                        "danger",
+                        "lethargy",
+                        "lethargic",
+                        "cannot drink",
+                        "blood",
+                        "vomiting",
+                        "sunken",
+                        "khatre",
+                        "sust",
+                        "nahi pee"
+                    ]
+                },
+                {
+                    "item": "Advise immediate referral if danger signs present",
+                    "type": "critical",
+                    "keywords": [
+                        "refer",
+                        "hospital",
+                        "doctor",
+                        "immediately",
+                        "urgent",
+                        "turant",
+                        "aspatal",
+                        "le jaiye"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "followup"
+                }
+            ]
+        },
+        "followup": {
+            "patient_text": {
+                "en": "Thank you for explaining everything. I will give him ORS right away. When should I expect him to get better?",
+                "hi": "सब समझाने के लिए धन्यवाद। मैं अभी उसे ORS दूंगी। कब तक ठीक हो जाएगा?"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Schedule follow-up visit within 2 days",
+                    "type": "normal",
+                    "keywords": [
+                        "follow-up",
+                        "come back",
+                        "2 day",
+                        "check",
+                        "tomorrow",
+                        "next",
+                        "kal",
+                        "agle",
+                        "aana"
+                    ]
+                },
+                {
+                    "item": "Reinforce ORS + zinc for 14 days",
+                    "type": "normal",
+                    "keywords": [
+                        "ORS",
+                        "zinc",
+                        "14",
+                        "continue",
+                        "jaari",
+                        "rakhein"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "__end__"
+                }
+            ]
+        }
+    }
+}

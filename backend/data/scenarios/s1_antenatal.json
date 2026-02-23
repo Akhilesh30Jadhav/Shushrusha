@@ -1,0 +1,169 @@
+{
+  "id": "s1_antenatal",
+  "title": {
+    "en": "Antenatal Visit",
+    "hi": "प्रसवपूर्व जांच"
+  },
+  "category": {
+    "en": "Maternal Health",
+    "hi": "मातृ स्वास्थ्य"
+  },
+  "difficulty": "beginner",
+  "estimated_minutes": 10,
+  "description": {
+    "en": "Practice conducting an antenatal home visit with a pregnant woman in her 7th month.",
+    "hi": "7वें महीने की गर्भवती महिला के साथ प्रसवपूर्व गृह भेंट का अभ्यास करें।"
+  },
+  "supported_languages": ["en", "hi"],
+  "total_turns_estimate": 8,
+  "nodes": {
+    "start": {
+      "patient_text": {
+        "en": "Namaste, didi. I am Sunita, 7 months pregnant. The ASHA worker told me you would come for a check-up. Please come in.",
+        "hi": "नमस्ते दीदी। मैं सुनीता हूं, 7 महीने की गर्भवती हूं। आशा दीदी ने बताया था कि आप जांच के लिए आएंगी। आइए अंदर।"
+      },
+      "expected_checklist": [
+        {
+          "item": "Greet and introduce yourself",
+          "type": "normal",
+          "keywords": ["namaste", "hello", "greet", "name", "introduce", "asha"]
+        }
+      ],
+      "transitions": [
+        { "condition": "default", "next_node_key": "ask_wellbeing" }
+      ]
+    },
+    "ask_wellbeing": {
+      "patient_text": {
+        "en": "I am doing okay, but sometimes I feel very tired and dizzy. My feet also swell up in the evenings.",
+        "hi": "मैं ठीक हूं, लेकिन कभी-कभी बहुत थकान और चक्कर आते हैं। शाम को पैरों में सूजन भी आ जाती है।"
+      },
+      "expected_checklist": [
+        {
+          "item": "Ask about general well-being",
+          "type": "normal",
+          "keywords": ["how are you", "feeling", "well", "health", "kaise", "tabiyat"]
+        },
+        {
+          "item": "Ask about danger signs: swelling, headache, blurred vision",
+          "type": "critical",
+          "keywords": ["swelling", "headache", "vision", "blurred", "danger", "sujan", "sir dard", "nazar"]
+        }
+      ],
+      "transitions": [
+        { "condition": "default", "next_node_key": "ask_bleeding" }
+      ]
+    },
+    "ask_bleeding": {
+      "patient_text": {
+        "en": "No, I haven't had any bleeding. But I was wondering — is a little spotting normal? My neighbor said she had some.",
+        "hi": "नहीं, मुझे कोई खून नहीं आया। लेकिन मैं सोच रही थी — क्या थोड़ा सा स्पॉटिंग सामान्य है? मेरी पड़ोसन को हुआ था।"
+      },
+      "expected_checklist": [
+        {
+          "item": "Ask about vaginal bleeding",
+          "type": "critical",
+          "keywords": ["bleeding", "blood", "spotting", "discharge", "khoon", "rakt"]
+        }
+      ],
+      "transitions": [
+        { "condition": "default", "next_node_key": "fetal_movement" }
+      ]
+    },
+    "fetal_movement": {
+      "patient_text": {
+        "en": "Yes, the baby kicks a lot, especially after I eat. But yesterday the kicks felt less than usual. Should I worry?",
+        "hi": "हां, बच्चा बहुत लात मारता है, खासकर खाने के बाद। लेकिन कल सामान्य से कम हलचल महसूस हुई। क्या मुझे चिंता करनी चाहिए?"
+      },
+      "expected_checklist": [
+        {
+          "item": "Ask about fetal movement",
+          "type": "critical",
+          "keywords": ["movement", "kick", "baby move", "fetal", "halchal", "laat"]
+        }
+      ],
+      "transitions": [
+        { "condition": "default", "next_node_key": "nutrition_counsel" }
+      ]
+    },
+    "nutrition_counsel": {
+      "patient_text": {
+        "en": "I eat roti, dal, and rice mostly. Sometimes vegetables. I have the iron tablets but I forget to take them. They make me feel sick.",
+        "hi": "मैं रोटी, दाल और चावल खाती हूं। कभी-कभी सब्जी। आयरन की गोलियां हैं लेकिन भूल जाती हूं लेना। जी मिचलाता है।"
+      },
+      "expected_checklist": [
+        {
+          "item": "Counsel on iron/folate supplementation",
+          "type": "normal",
+          "keywords": ["iron", "folate", "folic", "tablet", "supplement", "goli", "lauha"]
+        },
+        {
+          "item": "Counsel on nutrition and diet",
+          "type": "normal",
+          "keywords": ["nutrition", "diet", "food", "eat", "protein", "vegetable", "fruit", "milk", "poshan", "khaana"]
+        }
+      ],
+      "transitions": [
+        { "condition": "default", "next_node_key": "rest_counsel" }
+      ]
+    },
+    "rest_counsel": {
+      "patient_text": {
+        "en": "I do a lot of housework and also take care of my 3-year-old. I don't rest much during the day. My husband works in the city.",
+        "hi": "मैं बहुत घर का काम करती हूं और 3 साल के बच्चे की देखभाल भी। दिन में ज्यादा आराम नहीं कर पाती। पति शहर में काम करते हैं।"
+      },
+      "expected_checklist": [
+        {
+          "item": "Advise adequate rest",
+          "type": "normal",
+          "keywords": ["rest", "sleep", "relax", "aaram", "neend"]
+        }
+      ],
+      "transitions": [
+        { "condition": "default", "next_node_key": "birth_preparedness" }
+      ]
+    },
+    "birth_preparedness": {
+      "patient_text": {
+        "en": "We haven't decided yet where to deliver. My mother-in-law says to deliver at home like she did. But the ANM told me to go to the hospital.",
+        "hi": "अभी तय नहीं किया कि कहां प्रसव कराना है। मेरी सास कहती हैं घर पर कराओ जैसे उन्होंने कराया। लेकिन ANM ने अस्पताल जाने को कहा।"
+      },
+      "expected_checklist": [
+        {
+          "item": "Discuss birth preparedness and hospital delivery",
+          "type": "normal",
+          "keywords": ["hospital", "institutional", "delivery", "birth plan", "transport", "ambulance", "aspatal", "prasav"]
+        },
+        {
+          "item": "Ensure institutional delivery plan",
+          "type": "critical",
+          "keywords": ["hospital", "facility", "institutional", "delivery", "aspatal", "janani"]
+        }
+      ],
+      "transitions": [
+        { "condition": "default", "next_node_key": "followup" }
+      ]
+    },
+    "followup": {
+      "patient_text": {
+        "en": "Thank you, didi. You have been very helpful. I will try to follow your advice. When should I see you again?",
+        "hi": "धन्यवाद दीदी। आपने बहुत अच्छी जानकारी दी। मैं आपकी सलाह मानने की कोशिश करूंगी। दोबारा कब मिलें?"
+      },
+      "expected_checklist": [
+        {
+          "item": "Schedule follow-up visit",
+          "type": "normal",
+          "keywords": ["follow-up", "next visit", "come back", "schedule", "week", "month", "agle hafte", "milte"]
+        },
+        {
+          "item": "Provide emergency contact information",
+          "type": "normal",
+          "keywords": ["emergency", "phone", "call", "contact", "number", "ambulance", "108"]
+        }
+      ],
+      "transitions": [
+        { "condition": "default", "next_node_key": "__end__" }
+      ]
+    }
+  }
+}

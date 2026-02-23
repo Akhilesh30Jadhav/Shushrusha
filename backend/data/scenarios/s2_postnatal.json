@@ -1,0 +1,319 @@
+{
+    "id": "s2_postnatal",
+    "title": {
+        "en": "Postnatal Follow-up",
+        "hi": "प्रसवोत्तर जांच"
+    },
+    "category": {
+        "en": "Maternal & Newborn",
+        "hi": "मातृ एवं नवजात"
+    },
+    "difficulty": "intermediate",
+    "estimated_minutes": 12,
+    "description": {
+        "en": "Visit a new mother 7 days after delivery to check on her and her newborn's health.",
+        "hi": "प्रसव के 7 दिन बाद नई माँ और नवजात की स्वास्थ्य जांच के लिए गृह भेंट करें।"
+    },
+    "supported_languages": [
+        "en",
+        "hi"
+    ],
+    "total_turns_estimate": 8,
+    "nodes": {
+        "start": {
+            "patient_text": {
+                "en": "Hello didi, come in. I delivered a baby boy 7 days ago at the district hospital. We are both home now.",
+                "hi": "नमस्ते दीदी, आइए। 7 दिन पहले जिला अस्पताल में बेटा हुआ है। अब हम दोनों घर पर हैं।"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Greet and ask about delivery details",
+                    "type": "normal",
+                    "keywords": [
+                        "hello",
+                        "namaste",
+                        "congratulations",
+                        "delivery",
+                        "how was",
+                        "badhai",
+                        "prasav"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "mother_health"
+                }
+            ]
+        },
+        "mother_health": {
+            "patient_text": {
+                "en": "I had a normal delivery. But I still have some bleeding — not very heavy, but it hasn't stopped. And I feel feverish sometimes, especially at night.",
+                "hi": "सामान्य प्रसव हुआ था। लेकिन अभी भी थोड़ा खून आ रहा है — ज्यादा नहीं, पर बंद नहीं हुआ। और कभी-कभी बुखार सा लगता है, खासकर रात में।"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Ask about fever after delivery",
+                    "type": "critical",
+                    "keywords": [
+                        "fever",
+                        "temperature",
+                        "hot",
+                        "bukhar",
+                        "garmi",
+                        "taap"
+                    ]
+                },
+                {
+                    "item": "Ask about heavy/abnormal bleeding",
+                    "type": "critical",
+                    "keywords": [
+                        "bleeding",
+                        "blood",
+                        "heavy",
+                        "discharge",
+                        "khoon",
+                        "rakt",
+                        "bahut"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "breastfeeding"
+                }
+            ]
+        },
+        "breastfeeding": {
+            "patient_text": {
+                "en": "He feeds well during the day, but at night he cries a lot and doesn't latch. My mother-in-law gave him honey water yesterday. Is that okay?",
+                "hi": "दिन में तो अच्छे से दूध पीता है, लेकिन रात में बहुत रोता है और लगता नहीं है। कल सास ने शहद का पानी पिलाया। क्या यह ठीक है?"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Assess breastfeeding practice",
+                    "type": "normal",
+                    "keywords": [
+                        "breastfeed",
+                        "feeding",
+                        "latch",
+                        "milk",
+                        "nurse",
+                        "dudh",
+                        "stananpaan"
+                    ]
+                },
+                {
+                    "item": "Counsel exclusive breastfeeding and no pre-lacteal feeds",
+                    "type": "critical",
+                    "keywords": [
+                        "exclusive",
+                        "only breast",
+                        "no honey",
+                        "no water",
+                        "pre-lacteal",
+                        "sirf",
+                        "keval"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "newborn_care"
+                }
+            ]
+        },
+        "newborn_care": {
+            "patient_text": {
+                "en": "He feels warm to me. His cord stump fell off yesterday. The area looks a bit red. We apply mustard oil on his body every day.",
+                "hi": "मुझे गर्म लगता है बच्चा। कल नाल गिर गई। वहां थोड़ा लाल दिख रहा है। हम रोज सरसों का तेल लगाते हैं शरीर पर।"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Counsel on newborn warmth and kangaroo care",
+                    "type": "normal",
+                    "keywords": [
+                        "warm",
+                        "kangaroo",
+                        "skin",
+                        "blanket",
+                        "cover",
+                        "garam",
+                        "kapda"
+                    ]
+                },
+                {
+                    "item": "Check and counsel on cord care",
+                    "type": "normal",
+                    "keywords": [
+                        "cord",
+                        "umbilical",
+                        "naal",
+                        "stump",
+                        "clean",
+                        "dry",
+                        "infection"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "feeding_frequency"
+                }
+            ]
+        },
+        "feeding_frequency": {
+            "patient_text": {
+                "en": "I feed him about 5-6 times during the day. At night, I'm so tired I sometimes sleep through. He doesn't cry much at night now.",
+                "hi": "दिन में 5-6 बार पिलाती हूं। रात में इतनी थकान होती है कि कभी-कभी सो जाती हूं। अब रात में ज्यादा नहीं रोता।"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Counsel on feeding frequency (8-12 times/day)",
+                    "type": "normal",
+                    "keywords": [
+                        "frequency",
+                        "8",
+                        "10",
+                        "12",
+                        "times",
+                        "every 2",
+                        "often",
+                        "baar",
+                        "ghante"
+                    ]
+                },
+                {
+                    "item": "Counsel on night feeding importance",
+                    "type": "normal",
+                    "keywords": [
+                        "night",
+                        "demand",
+                        "whenever",
+                        "raat",
+                        "maang"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "hygiene"
+                }
+            ]
+        },
+        "hygiene": {
+            "patient_text": {
+                "en": "I wash my hands before cooking but not always before feeding. The water supply is sometimes not clean. We boil it occasionally.",
+                "hi": "खाना बनाने से पहले हाथ धोती हूं लेकिन दूध पिलाने से पहले हमेशा नहीं। पानी की सप्लाई कभी-कभी साफ नहीं होती। कभी-कभी उबालते हैं।"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Advise handwashing and hygiene practices",
+                    "type": "normal",
+                    "keywords": [
+                        "hand",
+                        "wash",
+                        "soap",
+                        "clean",
+                        "hygiene",
+                        "sabun",
+                        "haath",
+                        "safai"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "danger_signs_newborn"
+                }
+            ]
+        },
+        "danger_signs_newborn": {
+            "patient_text": {
+                "en": "What are the signs that something is wrong with the baby? When should I rush to the hospital?",
+                "hi": "बच्चे में क्या लक्षण हों तो समझें कि कुछ गलत है? कब तुरंत अस्पताल जाना चाहिए?"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Explain newborn danger signs (not feeding, convulsions, fast breathing, high fever)",
+                    "type": "critical",
+                    "keywords": [
+                        "danger",
+                        "not feeding",
+                        "convulsion",
+                        "breathing",
+                        "fever",
+                        "lethargy",
+                        "khatre",
+                        "saans"
+                    ]
+                },
+                {
+                    "item": "Advise immediate referral for danger signs",
+                    "type": "critical",
+                    "keywords": [
+                        "refer",
+                        "hospital",
+                        "immediately",
+                        "emergency",
+                        "turant",
+                        "aspatal",
+                        "108"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "followup"
+                }
+            ]
+        },
+        "followup": {
+            "patient_text": {
+                "en": "Thank you for all the advice, didi. I feel more confident now. When will you come again?",
+                "hi": "बहुत-बहुत धन्यवाद दीदी। अब मुझे ज्यादा विश्वास है। आप दोबारा कब आएंगी?"
+            },
+            "expected_checklist": [
+                {
+                    "item": "Schedule next postnatal visit",
+                    "type": "normal",
+                    "keywords": [
+                        "next visit",
+                        "follow-up",
+                        "come back",
+                        "schedule",
+                        "agle",
+                        "milenge",
+                        "aana"
+                    ]
+                },
+                {
+                    "item": "Remind about immunization schedule",
+                    "type": "normal",
+                    "keywords": [
+                        "immunization",
+                        "vaccine",
+                        "vaccination",
+                        "tikka",
+                        "teeka",
+                        "BCG",
+                        "OPV"
+                    ]
+                }
+            ],
+            "transitions": [
+                {
+                    "condition": "default",
+                    "next_node_key": "__end__"
+                }
+            ]
+        }
+    }
+}
