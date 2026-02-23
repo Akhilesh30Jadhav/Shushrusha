@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sushrusha-backend
+    runtime: docker
+    repo: https://github.com/Akhilesh30Jadhav/Shushrusha
+    plan: free
+    dockerFilePath: backend/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./data/sushrusha.db
+      - key: FRONTEND_URL
+        value: https://your-vercel-domain.vercel.app
+      - key: PORT
+        value: 8000
